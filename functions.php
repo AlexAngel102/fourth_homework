@@ -4,7 +4,6 @@ function loginEndpoint()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         makeLogin($_POST['email'], $_POST['password']);
-        //header('Location: /');
         die();
     }
 
@@ -51,7 +50,6 @@ function registerEndpoint()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         makeRegistration($_POST['email'], $_POST['password']);
-        //header('Location: /');
         die();
     }
 
@@ -62,8 +60,8 @@ function makeLogin(string $email, string $password)
 {
     $users = [];
 
-    if (strlen($password) < 4) {
-        header("Location: /?action=login&email=$email&error=Password should be at least 4 symbols!");
+    if (strlen($password) < 6) {
+        header("Location: /?action=login&email=$email&error=Password should be at least 6 symbols!");
         return;
     }
 
@@ -79,7 +77,7 @@ function makeLogin(string $email, string $password)
         }
     }
 
-    header("Location: /?action=login&email=$email&error=Credentials you entered were incorrect!");
+    header("Location: /?action=login&email=$email&error=Login or password is incorrect");
 }
 
 function makeRegistration(string $email, string $password)
@@ -160,14 +158,13 @@ function getSiteTemplate(): string
 
     if ($user = getAuthUser()) {
         $html .= '
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" xmlns="http://www.w3.org/1999/html">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           ' . $user . '
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/?action=logout">LogOut</a>
-        </div>
-      </li>';
+         <a href="/?action=logout" class="btn btn-danger m-1">LogOut</a>
+      </li>
+      ';
     } else {
         $html .= '
       <li class="nav-item">
@@ -201,9 +198,19 @@ function getSiteTemplate(): string
 
 function mainEndpoint()
 {
-    $template = "You are %s";
-    $html = sprintf($template, getAuthUser() ?? "unauthorized user!");
+    if ($user = getAuthUser()) {$html .= '
+      <div class="m-3">
+        <form action="contactsheet.php" method="POST">
+          <input type="text" name="name" placeholder="Enter name"></input>
+          <input type="tel" name="number" placeholder="Exaple +380 123456789"></input>
+          <input type="submit" placeholder="Add"></input>
+        </form>
+      </div>';
 
+    echo $contactTable;
+    }else{
+        getSiteTemplate();
+    }
     echo sprintf(getSiteTemplate(), $html);
 }
 
