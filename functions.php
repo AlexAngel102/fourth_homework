@@ -3,7 +3,7 @@
 function loginEndpoint()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        makeLogin($_POST['email'], $_POST['password']);
+        makeLogin(strtolower($_POST['email']), $_POST['password']);
         die();
     }
 
@@ -49,7 +49,7 @@ function logoutEndpoint()
 function registerEndpoint()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        makeRegistration($_POST['email'], $_POST['password']);
+        makeRegistration(strtolower($_POST['email']), $_POST['password']);
         die();
     }
 
@@ -189,16 +189,16 @@ function getSiteTemplate(): string
     ';
     $html .= '<div class="container">';
     $html .= '%s';
+    $html .= $contactSheet;
     $html .= '</div>';
     $html .= '</body>';
     $html .= '</html>';
-
     return $html;
 }
 
 function mainEndpoint()
 {
-    if ($user = getAuthUser()) {$html .= '
+    if ($user = getAuthUser()) { $html .= '
       <div class="m-3">
         <form action="contactsheet.php" method="POST">
           <input type="text" name="name" placeholder="Enter name"></input>
@@ -206,8 +206,6 @@ function mainEndpoint()
           <input type="submit" placeholder="Add"></input>
         </form>
       </div>';
-
-    echo $contactTable;
     }else{
         getSiteTemplate();
     }

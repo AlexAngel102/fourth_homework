@@ -2,7 +2,7 @@
 
 require_once "session.php";
 require_once "functions.php";
-require_once "contactsheet.php";
+
 
 $action = $_GET['action'] ?? 'main';
 

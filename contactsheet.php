@@ -1,5 +1,12 @@
 <?php
 
+    function createCyrilic(){
+    $abc = [];
+    foreach (range(chr(0xC0), chr(0xFF)) as $b){
+        $abc[] = iconv('CP1251', 'UTF-8', $b);
+    }
+    return $abc;
+    }
 
     $contactTable = '
                 <table class="">
@@ -8,21 +15,26 @@
                       <th scope="col">Contacts</th>
                     </tr>
                  </thead>'.
-                  //  contactView().
+                    contactView().
                 '</table>
                        ';
 
-    if (!empty($_POST['name']) & !empty($_POST['number'])) {
-//        if (is_numeric($_POST['number'])) {
-            $number = trim($_POST['number'], "a..z, A..Z, а..я, А..Я, -");
-
-            print_r($number);
-//                print_r($_POST);
-            //contactAdd($_POST['name'], );
+    if (!empty($_POST['name']) && !empty($_POST['number'])) {
+            $needleLat = range('a', 'z');
+            $number = str_ireplace($needleLat, '', $_POST['number']);
+            $number = str_ireplace(createCyrilic(), '', $number);
+            $contact = [
+                "Name" => $_POST['name'],
+                "Number" => $number
+            ];
+//            print_r($contact);
+            file_put_contents("contacts.json",json_encode($contact, JSON_UNESCAPED_UNICODE),8);
+    }
+    function contactView(){
+        $contactSheet = json_decode(file_get_contents("contacts.json"), JSON_UNESCAPED_UNICODE);
+//        print_r($contactSheet);
+        foreach ($contactSheet as $key => $contact){
+            echo "<tr>".$key."<td>".$contact."</td>"."</tr>";
         }
-//    }
-
-//    function contactAdd($name, $number){
-//
-//    }
-
+    }
+    print_r(contactView());

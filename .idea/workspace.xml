@@ -26,11 +26,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25b89a76-2bca-4ea8-979e-1d4d15a4834a" name="Default Changelist" comment="starter template">
-      <change afterPath="$PROJECT_DIR$/contactsheet.php" afterDir="false" />
+    <list default="true" id="25b89a76-2bca-4ea8-979e-1d4d15a4834a" name="Default Changelist" comment="contact add form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactsheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/contactsheet.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/users.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +91,11 @@
       <updated>1598723213632</updated>
       <workItem from="1598723220238" duration="4443000" />
       <workItem from="1598729329638" duration="36000" />
-      <workItem from="1598879009362" duration="9368000" />
+      <workItem from="1598879009362" duration="9819000" />
+      <workItem from="1598892530854" duration="94000" />
+      <workItem from="1598896733139" duration="8830000" />
+      <workItem from="1599159723458" duration="44000" />
+      <workItem from="1599333797508" duration="4061000" />
     </task>
     <task id="LOCAL-00001" summary="starter template">
       <created>1598879508239</created>
@@ -98,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598879508239</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="contact add form">
+      <created>1598891483873</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598891483924</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +143,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="starter template" />
-    <option name="LAST_COMMIT_MESSAGE" value="starter template" />
+    <MESSAGE value="contact add form" />
+    <option name="LAST_COMMIT_MESSAGE" value="contact add form" />
   </component>
   <component name="WindowStateProjectService">
     <state x="323" y="27" width="700" height="691" key="#PHP" timestamp="1598879211893">
@@ -141,6 +155,10 @@
       <screen x="0" y="27" width="1366" height="691" />
     </state>
     <state x="141" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.691@0.27.1366.691" timestamp="1598728411658" />
+    <state x="369" y="174" width="618" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598906037801">
+      <screen x="0" y="27" width="1366" height="691" />
+    </state>
+    <state x="369" y="174" width="618" height="403" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1366.691@0.27.1366.691" timestamp="1598906037801" />
     <state x="454" y="116" width="447" height="520" key="FileChooserDialogImpl" timestamp="1598879192713">
       <screen x="0" y="27" width="1366" height="691" />
     </state>
@@ -157,18 +175,18 @@
       <screen x="0" y="27" width="1366" height="691" />
     </state>
     <state x="172" y="27" width="1012" height="691" key="SettingsEditor/0.27.1366.691@0.27.1366.691" timestamp="1598728615622" />
-    <state x="278" y="108" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1598879571945">
+    <state x="278" y="108" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1598891507169">
       <screen x="0" y="27" width="1366" height="691" />
     </state>
-    <state x="278" y="108" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.691@0.27.1366.691" timestamp="1598879571945" />
+    <state x="278" y="108" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.691@0.27.1366.691" timestamp="1598891507169" />
     <state x="464" y="287" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598879474316">
       <screen x="0" y="27" width="1366" height="691" />
     </state>
     <state x="464" y="287" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1366.691@0.27.1366.691" timestamp="1598879474316" />
-    <state x="347" y="161" key="run.anything.popup" timestamp="1598728631481">
+    <state x="347" y="161" key="run.anything.popup" timestamp="1598903437498">
       <screen x="0" y="27" width="1366" height="691" />
     </state>
-    <state x="347" y="161" key="run.anything.popup/0.27.1366.691@0.27.1366.691" timestamp="1598728631481" />
+    <state x="347" y="161" key="run.anything.popup/0.27.1366.691@0.27.1366.691" timestamp="1598903437498" />
     <state x="346" y="39" width="672" height="678" key="search.everywhere.popup" timestamp="1598881861064">
       <screen x="0" y="27" width="1366" height="691" />
     </state>

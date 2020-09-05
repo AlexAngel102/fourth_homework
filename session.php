@@ -7,5 +7,5 @@ if ($_COOKIE['session_id'] ?? []) {
     $sessionId = md5(rand(1,100000) . md5(time()));
     session_id($sessionId);
     session_start();
-    setcookie('session_id', $sessionId, time() + 60*60*24*14);
+    setcookie('session_id', $sessionId, time() + (60*60*24*14));
 }
